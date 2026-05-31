@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Language Translator</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+   <h1>🌍 Language Translator</h1>
+<p class="subtitle">
+Translate text instantly into multiple languages
+</p>
+
+    <form method="POST">
+
+        <textarea
+        name="text"
+        rows="5"
+        placeholder="Enter text here..."
+        required>{{ user_text }}</textarea>
+
+        <select name="language">
+
+            <option value="hi">Hindi</option>
+
+            <option value="fr">French</option>
+
+            <option value="es">Spanish</option>
+
+            <option value="de">German</option>
+
+            <option value="ja">Japanese</option>
+
+        </select>
+
+        <button type="submit">
+            Translate
+        </button>
+
+    </form>
+
+    {% if translated_text %}
+
+   <div class="result">
+    <h3>Result</h3>
+    <p>{{ translated_text }}</p>
+</div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
